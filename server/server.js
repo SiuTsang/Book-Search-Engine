@@ -3,7 +3,7 @@ const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
 
-const {ApolloServer} = require("apollo-server-express");
+const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers} = require('./schemas');
 const { isContext } = require('vm');
 
@@ -13,6 +13,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
+
+const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
